@@ -43,7 +43,7 @@ export default function Header() {
       <div className='container mx-auto px-4'>
         <div className='flex justify-between items-center'>
           {/* Logo */}
-          <Link to="/" className='flex items-center group'>
+          <Link to="/" className='flex items-center group' onClick={() => window.scrollTo(0, 0)}>
             <GiBroccoli className='text-3xl text-[#80B600] transition-transform duration-300 group-hover:scale-110' />
             <h1 className='ml-1 text-xl font-bold md:text-2xl'>Broccoli</h1>
           </Link>
@@ -60,6 +60,7 @@ export default function Header() {
                         ? 'text-[#80B600] font-bold relative after:content-[""] after:absolute after:bottom-[-5px] after:left-0 after:w-full after:h-[2px] after:bg-[#80B600]'
                         : 'text-gray-700 hover:text-[#80B600] transition-colors relative after:content-[""] after:absolute after:bottom-[-5px] after:left-0 after:w-0 after:h-[2px] after:bg-[#80B600] after:transition-all hover:after:w-full'
                     }
+                    onClick={() => window.scrollTo(0, 0)}
                   >
                     {link.name}
                   </NavLink>
@@ -111,7 +112,10 @@ export default function Header() {
                         ? 'text-[#80B600] font-bold block py-3 px-2'
                         : 'text-gray-700 hover:text-[#80B600] hover:bg-gray-50 transition-colors block py-3 px-2 rounded'
                     }
-                    onClick={() => setMobileMenuOpen(false)}
+                    onClick={() => {
+                      setMobileMenuOpen(false);
+                      window.scrollTo(0, 0);
+                    }}
                   >
                     {link.name}
                   </NavLink>
