@@ -27,7 +27,7 @@ export default function Testimonials() {
   const testimonials = [
     {
       id: 1,
-      name: 'Jennifer Smith',
+      name: 'Saara Ali',
       role: 'Health Enthusiast',
       quote: "I've been ordering from Broccoli Organics for over a year now, and the quality of their produce is consistently excellent. Everything is always fresh and tastes amazing!",
       rating: 5,
@@ -35,7 +35,7 @@ export default function Testimonials() {
     },
     {
       id: 2,
-      name: 'Robert Johnson',
+      name: 'Shafie Hassan',
       role: 'Chef',
       quote: "As a professional chef, I'm very particular about the ingredients I use. Broccoli Organics provides the freshest organic produce that makes all my dishes stand out.",
       rating: 5,
@@ -43,7 +43,7 @@ export default function Testimonials() {
     },
     {
       id: 3,
-      name: 'Amanda Williams',
+      name: 'Halima Nur',
       role: 'Mother of Two',
       quote: "Finding organic food that my kids actually enjoy eating was a challenge until I discovered Broccoli Organics. Their fruits are sweet, and the vegetables are so fresh!",
       rating: 4,
