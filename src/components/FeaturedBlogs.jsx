@@ -3,8 +3,12 @@ import { Link } from 'react-router-dom'
 import f4 from '../assets/img/f4.png'
 import f5 from '../assets/img/f5.png'
 import f6 from '../assets/img/f6.png'
+import useAOS from '../hooks/useAOS'
 
 export default function FeaturedBlogs() {
+  // Initialize AOS animations
+  useAOS();
+
   // Featured blog posts data
   const featuredPosts = [
     {
@@ -34,36 +38,49 @@ export default function FeaturedBlogs() {
   ]
 
   return (
-    <div className="py-16">
+    <div className="py-16 md:py-24">
       <div className="container mx-auto px-4">
-        <div className="flex justify-between items-center mb-12">
-          <h2 className="text-3xl font-bold">From Our Blog</h2>
-          <Link to="/blog" className="text-[#80B600] font-medium hover:underline">
-            View All Posts →
+        <div className="flex flex-col md:flex-row justify-between items-center mb-12" data-aos="fade-up">
+          <h2 className="text-3xl md:text-4xl font-bold mb-4 md:mb-0">From Our Blog</h2>
+          <Link
+            to="/blog"
+            className="text-[#80B600] font-medium hover:text-[#6a9900] transition-colors flex items-center group"
+          >
+            View All Posts
+            <span className="ml-1 transform transition-transform duration-300 group-hover:translate-x-1">→</span>
           </Link>
         </div>
-        
+
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-          {featuredPosts.map((post) => (
-            <div key={post.id} className="bg-white rounded-lg overflow-hidden shadow-md transition-transform duration-300 hover:scale-105">
-              <img 
-                src={post.image} 
-                alt={post.title} 
-                className="w-full h-48 object-cover"
-              />
+          {featuredPosts.map((post, index) => (
+            <div
+              key={post.id}
+              className="bg-white rounded-lg overflow-hidden shadow-md transition-all duration-300 hover:shadow-xl hover:-translate-y-2"
+              data-aos="fade-up"
+              data-aos-delay={index * 100}
+            >
+              <div className="relative overflow-hidden">
+                <img
+                  src={post.image}
+                  alt={post.title}
+                  className="w-full h-48 object-cover transition-transform duration-700 hover:scale-110"
+                />
+                <div className="absolute top-4 left-4 bg-[#80B600] text-white text-xs px-2 py-1 rounded">
+                  {post.date}
+                </div>
+              </div>
               <div className="p-6">
                 <div className="flex items-center text-sm text-gray-600 mb-3">
-                  <span>{post.date}</span>
-                  <span className="mx-2">•</span>
                   <span>By {post.author}</span>
                 </div>
-                <h3 className="text-xl font-bold mb-3">{post.title}</h3>
+                <h3 className="text-xl font-bold mb-3 hover:text-[#80B600] transition-colors">{post.title}</h3>
                 <p className="text-gray-700 mb-4">{post.excerpt}</p>
-                <Link 
-                  to={`/blog/${post.id}`} 
-                  className="text-[#80B600] font-medium hover:underline"
+                <Link
+                  to={`/blog/${post.id}`}
+                  className="inline-flex items-center text-[#80B600] font-medium hover:text-[#6a9900] transition-colors group"
                 >
-                  Read More →
+                  Read More
+                  <span className="ml-1 transform transition-transform duration-300 group-hover:translate-x-1">→</span>
                 </Link>
               </div>
             </div>

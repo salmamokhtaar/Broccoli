@@ -1,60 +1,82 @@
 import React from 'react'
-
+import { Link } from 'react-router-dom'
 import f4 from '../assets/img/f4.png'
 import f5 from '../assets/img/f5.png'
 import f6 from '../assets/img/f6.png'
+import useAOS from '../hooks/useAOS'
 
 export default function Section2() {
+    // Initialize AOS animations
+    useAOS();
+
     return (
-        <div className='px-10 mt-20 mb-20 md:px-40'>
-
-            <div className='md:flex justify-evenly'>
-
-                {/* first box */}
-                <div className='bg-[#EFF5E9] w-[400px] h-[340px] flex justify-evenly rounded-md'>
-                    <div className='ml-10'>
-                        <p className='mt-10 font-serif text-xl'>Green Lemon</p>
-                        <p className='font-serif text-lg font-semibold'>Orange Juice</p>
-                        <p className='mt-4 text-[#ABB5AD] text-lg'>BEST ORANGE <br /> FLAVOR YOU NEVER MISS</p>
-                        <button className='p-3 px-4 rounded-md mt-5 font-bold text-white  bg-[#80B600]'>Shop Now</button>
+        <div className='py-16 md:py-20'>
+            <div className='container mx-auto px-4'>
+                <div className='grid grid-cols-1 lg:grid-cols-2 gap-8'>
+                    {/* first box */}
+                    <div
+                        className='bg-[#EFF5E9] rounded-lg overflow-hidden shadow-md hover:shadow-lg transition-all duration-300'
+                        data-aos="fade-right"
+                    >
+                        <div className='flex flex-col md:flex-row items-center p-6'>
+                            <div className='md:w-1/2 mb-6 md:mb-0 md:pr-6'>
+                                <p className='text-[#80B600] font-bold mb-2'>Special Offer</p>
+                                <h3 className='text-2xl md:text-3xl font-bold mb-3'>Green Lemon <br/> Orange Juice</h3>
+                                <p className='text-gray-600 mb-6'>BEST ORANGE FLAVOR YOU NEVER MISS</p>
+                                <Link to="/shop" className='inline-block bg-[#80B600] text-white font-bold py-2 px-6 rounded-md hover:bg-[#6a9900] transition-all duration-300 transform hover:scale-105 hover:shadow-lg'>
+                                    Shop Now
+                                </Link>
+                            </div>
+                            <div className='md:w-1/2 flex justify-center'>
+                                <img
+                                    src={f4}
+                                    className='max-w-full h-auto transform transition-transform duration-700 hover:scale-110'
+                                    alt="Green Lemon Orange Juice"
+                                />
+                            </div>
+                        </div>
                     </div>
-                    <div>
-                        <img src={f4} className='w-60 ' alt="" />
+
+                    {/* second box - stacked */}
+                    <div className='flex flex-col gap-6' data-aos="fade-left">
+                        <div className='bg-[#EFF5E9] rounded-lg overflow-hidden shadow-md hover:shadow-lg transition-all duration-300'>
+                            <div className='flex flex-col md:flex-row items-center p-6'>
+                                <div className='md:w-1/2 mb-6 md:mb-0 flex justify-center'>
+                                    <img
+                                        src={f5}
+                                        className='max-w-full h-auto transform transition-transform duration-700 hover:scale-110'
+                                        alt="Almond Seeds"
+                                    />
+                                </div>
+                                <div className='md:w-1/2'>
+                                    <p className='text-[#80B600] font-bold mb-2'>Limited Time</p>
+                                    <h3 className='text-xl md:text-2xl font-bold mb-2'>Up to 15% off Fresh Almond Seed</h3>
+                                    <p className='text-[#80B600] font-bold text-xl'>From $69.99</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div className='bg-[#EFF5E9] rounded-lg overflow-hidden shadow-md hover:shadow-lg transition-all duration-300'>
+                            <div className='flex flex-col md:flex-row items-center p-6'>
+                                <div className='md:w-1/2 mb-6 md:mb-0 md:pr-6'>
+                                    <p className='text-[#80B600] font-bold mb-2'>Special Deal</p>
+                                    <h3 className='text-xl md:text-2xl font-bold mb-3'>Up to 50% off Fresh Mango Drinks</h3>
+                                    <Link to="/shop" className='inline-block bg-[#80B600] text-white font-bold py-2 px-6 rounded-md hover:bg-[#6a9900] transition-all duration-300 transform hover:scale-105 hover:shadow-lg'>
+                                        Shop Now
+                                    </Link>
+                                </div>
+                                <div className='md:w-1/2 flex justify-center'>
+                                    <img
+                                        src={f6}
+                                        className='max-w-full h-auto transform transition-transform duration-700 hover:scale-110'
+                                        alt="Mango Drinks"
+                                    />
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
-
-                {/* second box */}
-                <div className='flex flex-col gap-6 mt-10 md:mt-0'>
-
-                    <div className='bg-[#EFF5E9] md:w-[500px] h-[150px] flex justify-evenly rounded-md'>
-                        <div>
-                            <img src={f5} className='w-[180px] ' alt="" />
-                        </div>
-                        <div className='flex flex-col mt-5 ml-10 mr-10 md:mt-10'>
-
-                            <p className='font-semibold md:text-lg'>Up to 15% off Fresh </p>
-                            <p className='mt-2 font-serif font-bold md:text-lg'>Almond Seed</p>
-                            <p className='text-[#80B600] md:text-xl font-bold'>From 69.99</p>
-
-                        </div>
-                    </div>
-
-                    <div className='bg-[#EFF5E9] md:w-[500px] h-[150px] flex justify-evenly rounded-md'>
-
-                        <div className='flex flex-col mt-10 ml-10 mr-10'>
-                            <p className='font-semibold md:text-lg'>Up to 50% off Fresh </p>
-                            <p className='mt-2 font-serif font-bold md:text-lg'>Mango Drinks</p>
-                            <button className='bg-[#80B600] text-white mt-3 p-2 rounded-md'>Shop Now</button>
-                        </div>
-                        <div>
-                            <img src={f6} className='w-[160px]' alt="" />
-                        </div>
-                    </div>
-                </div>
-
-
             </div>
-
         </div>
     )
 }
